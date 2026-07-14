@@ -6,7 +6,7 @@ class AppTheme {
  static const Color white = Color(0xffffffff);
   static ThemeData lightTheme =ThemeData();
   static ThemeData darkTheme =ThemeData(
-    scaffoldBackgroundColor: dark,
+    //scaffoldBackgroundColor: dark,
     appBarTheme:const AppBarTheme(
     backgroundColor: dark,
     foregroundColor: primary,

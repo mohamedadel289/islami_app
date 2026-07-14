@@ -7,7 +7,7 @@ class QuranTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        "Quran Tab",
+       ''
       ),
     );
   }

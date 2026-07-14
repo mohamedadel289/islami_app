@@ -7,7 +7,7 @@ class RadioTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        "Radio Tab",
+        '',
       ),
     );
   }

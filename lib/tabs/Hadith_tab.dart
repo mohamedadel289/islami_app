@@ -7,7 +7,7 @@ class HadithTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        "Hadith Tab",
+        ''
       ),
     );
   }
