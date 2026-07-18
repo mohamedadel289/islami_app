@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/tabs/Hadith_tab.dart';
-import 'package:islami/tabs/Quran_tab.dart';
+import 'package:islami/tabs/Quran/Quran_tab.dart';
 import 'package:islami/tabs/Radio_tab.dart';
 import 'package:islami/tabs/Sebha_tab.dart';
 import 'package:islami/tabs/Time_tab.dart';
@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     RadioTab(),
     TimeTab(),
   ];
- 
+
   List<String> backgroundImages = [
     "Quran_background",
     "Hadith_background",
@@ -38,7 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/${backgroundImages[currentIndex]}.png"),
+            image: AssetImage(
+              "assets/images/${backgroundImages[currentIndex]}.png",
+            ),
             fit: BoxFit.fill,
           ),
         ),
@@ -46,9 +48,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              Image.asset("assets/images/islami_header.png",
-              height:MediaQuery.sizeOf(context).height * 0.12,
-              fit: BoxFit.fill
+              Image.asset(
+                "assets/images/islami_header.png",
+                height: MediaQuery.sizeOf(context).height * 0.12,
+                fit: BoxFit.fill,
               ),
               Expanded(child: tabs[currentIndex]),
             ],
@@ -57,34 +60,33 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
-       currentIndex = value;
-       setState(() {
-       });
-      },
-      currentIndex: currentIndex,
-       
+          currentIndex = value;
+          setState(() {});
+        },
+        currentIndex: currentIndex,
+
         items: [
           BottomNavigationBarItem(
             icon: InactiveNavBarIcon(iconName: "Quran"),
             activeIcon: ActiveNavBarIcon(iconName: "Quran"),
             label: 'Quran',
           ),
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: InactiveNavBarIcon(iconName: "Hadith"),
             activeIcon: ActiveNavBarIcon(iconName: "Hadith"),
             label: 'Hadith',
           ),
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: InactiveNavBarIcon(iconName: "Sebha"),
             activeIcon: ActiveNavBarIcon(iconName: "Sebha"),
             label: 'Sebha',
           ),
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: InactiveNavBarIcon(iconName: "Radio"),
             activeIcon: ActiveNavBarIcon(iconName: "Radio"),
             label: 'Radio',
           ),
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: InactiveNavBarIcon(iconName: "Time"),
             activeIcon: ActiveNavBarIcon(iconName: "Time"),
             label: 'Time',
