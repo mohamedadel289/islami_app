@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:islami/tabs/Quran/sura.dart';
 
 class QuranServices {
@@ -355,4 +356,8 @@ static Sura getsuraforindex(int index)=>  Sura(
       ayatCount: surayatCount[index],
       num: index + 1,
     );
+ static Future<String> readsurafilecontent(int suraNum) async {
+ 
+   return await rootBundle.loadString('assets/TexT/$suraNum.txt');
   }
+}
