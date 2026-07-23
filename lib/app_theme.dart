@@ -23,12 +23,39 @@ class AppTheme {
         showUnselectedLabels: false,
         selectedItemColor:  Color(0xff202020),
     ),
+     inputDecorationTheme: InputDecorationTheme(
+      hintStyle: TextStyle(
+        color: white.withValues(
+          alpha: 0.7,
+        ),
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+      ),
+      enabledBorder:OutlineInputBorder(
+        borderRadius:BorderRadius.circular(10),
+        borderSide: BorderSide(
+          color: primary,
+        ),
+      ),
+      focusedBorder:OutlineInputBorder(
+        borderRadius:BorderRadius.circular(10),
+        borderSide: BorderSide(
+          color: primary,
+        ),
+      ),
+      filled: true,
+      fillColor: dark.withValues(
+        alpha: 0.7,
+      ),
+    ),
+   
     textTheme: const TextTheme(
       titleSmall: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.bold,
         color: AppTheme.white,
       ),
+      
       
       titleLarge: TextStyle(
         fontSize: 20,

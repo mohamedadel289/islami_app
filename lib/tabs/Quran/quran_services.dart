@@ -116,7 +116,7 @@ class QuranServices {
     "المسد",
     "الإخلاص",
     "الفلق",
-    "الناس"
+    "الناس",
   ];
   static List<String> suranameEN = [
     "Al-Fatiha",
@@ -232,7 +232,7 @@ class QuranServices {
     "Al-Masad",
     "Al-Ikhlas",
     "Al-Falaq",
-    "An-Nas"
+    "An-Nas",
   ];
   static List<int> surayatCount = [
     7,
@@ -348,16 +348,28 @@ class QuranServices {
     5,
     4,
     5,
-    6
+    6,
   ];
-static Sura getsuraforindex(int index)=>  Sura(
-      nameEN: suranameEN[index],
-      nameAR: suranameAR[index],
-      ayatCount: surayatCount[index],
-      num: index + 1,
-    );
- static Future<String> readsurafilecontent(int suraNum) async {
- 
-   return await rootBundle.loadString('assets/TexT/$suraNum.txt');
+  static List<Sura> suraReslut = List.generate(
+    114,
+    (index) => getsuraforindex(index),
+  );
+  static void searchsura(String query) {
+    suraReslut.clear();
+    for(int i=0; i<114; i++){
+      if(suranameEN[i].toLowerCase().contains(query.toLowerCase())||suranameAR[i].contains(query)){
+        suraReslut.add(getsuraforindex(i));
+      }
+    }
+  }
+
+  static Sura getsuraforindex(int index) => Sura(
+    nameEN: suranameEN[index],
+    nameAR: suranameAR[index],
+    ayatCount: surayatCount[index],
+    num: index + 1,
+  );
+  static Future<String> readsurafilecontent(int suraNum) async {
+    return await rootBundle.loadString('assets/TexT/$suraNum.txt');
   }
 }

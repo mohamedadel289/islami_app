@@ -12,6 +12,7 @@ class ISLAMIAPP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+     // showPerformanceOverlay: true,
         debugShowCheckedModeBanner: false,
         routes:{
 HomeScreen.routeName:(_)=> HomeScreen(),
