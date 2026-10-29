@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:islami/tabs/Hadith_tab.dart';
 import 'package:islami/tabs/Quran/Quran_tab.dart';
-import 'package:islami/tabs/Radio_tab.dart';
-import 'package:islami/tabs/Sebha_tab.dart';
-import 'package:islami/tabs/Time_tab.dart';
+import 'package:islami/tabs/hadeth/hadeth_tab.dart';
+import 'package:islami/tabs/radio/radio_tab.dart';
+import 'package:islami/tabs/sebha/sebha_tab.dart';
+import 'package:islami/tabs/time/time_tab.dart';
 import 'package:islami/widgets/active_nav_bar_icon.dart';
 import 'package:islami/widgets/inactive_nav_bar_icon.dart';
 
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
   List<Widget> tabs = [
     QuranTab(),
-    HadithTab(),
+    HadethTab(),
     SebhaTab(),
     RadioTab(),
     TimeTab(),
@@ -53,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: MediaQuery.sizeOf(context).height * 0.12,
                 fit: BoxFit.fill,
               ),
+              SizedBox(height: 16),
               Expanded(child: tabs[currentIndex]),
             ],
           ),
