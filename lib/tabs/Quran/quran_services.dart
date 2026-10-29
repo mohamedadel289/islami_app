@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:islami/tabs/Quran/sura.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class QuranServices {
   static List<String> suranameAR = [
@@ -350,17 +351,21 @@ class QuranServices {
     5,
     6,
   ];
-  static List<Sura> suraReslut = List.generate(
+  static final List<Sura> _allSuras = List.generate(
     114,
     (index) => getsuraforindex(index),
   );
+  static List<Sura> suraReslut = List.from(_allSuras);
+  static List<Sura> mostRecentlyRead = [];
   static void searchsura(String query) {
-    suraReslut.clear();
-    for(int i=0; i<114; i++){
-      if(suranameEN[i].toLowerCase().contains(query.toLowerCase())||suranameAR[i].contains(query)){
-        suraReslut.add(getsuraforindex(i));
-      }
+    if (query.isEmpty) {
+      suraReslut = List.from(_allSuras);
+      return;
     }
+    suraReslut = _allSuras.where((sura) {
+      return sura.nameEN.toLowerCase().contains(query.toLowerCase()) ||
+          sura.nameAR.contains(query);
+    }).toList();
   }
 
   static Sura getsuraforindex(int index) => Sura(
@@ -371,5 +376,26 @@ class QuranServices {
   );
   static Future<String> readsurafilecontent(int suraNum) async {
     return await rootBundle.loadString('assets/TexT/$suraNum.txt');
+  }
+
+  static Future<void> getMostRecentlyRead() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String>? suraNumbers = prefs.getStringList('mostRecentlyRead');
+    if (suraNumbers == null) return;
+    mostRecentlyRead = suraNumbers.map((suraNum) {
+      int index = int.parse(suraNum);
+      return getsuraforindex(index);
+    }).toList();
+  }
+
+  static Future<void> addMostrecentlyread(Sura sura) async {
+    if (!mostRecentlyRead.contains(sura)) {
+      mostRecentlyRead.add(sura);
+    }
+    List<String> suraNumbers = mostRecentlyRead
+        .map((sura) => (sura.num - 1).toString())
+        .toList();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList('mostRecentlyRead', suraNumbers);
   }
 }

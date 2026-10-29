@@ -1,4 +1,4 @@
-import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:islami/app_theme.dart';
@@ -7,7 +7,7 @@ import 'package:islami/tabs/Quran/sura.dart';
 import 'package:islami/widgets/loading_indictor.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
- static const String routeName = 'sura_details';
+  static const String routeName = 'sura_details';
 
   const SuraDetailsScreen({super.key});
 
@@ -16,58 +16,90 @@ class SuraDetailsScreen extends StatefulWidget {
 }
 
 class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
-late Sura sura;
+  late Sura sura;
 
-List<String> ayat = [];
+  List<String> ayat = [];
 
   @override
   Widget build(BuildContext context) {
     sura = ModalRoute.of(context)?.settings.arguments as Sura;
-   if (ayat.isEmpty) {
+    if (ayat.isEmpty) {
       readsura();
     }
     double screenheight = MediaQuery.of(context).size.height;
     ThemeData themeData = Theme.of(context);
     return Scaffold(
-       appBar: AppBar(
-        title: Text(sura.nameEN,),
-      ),
-      body:Column(children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-            Image.asset('assets/images/img_left_corner.png',
-            width: 93,
-            height: screenheight*0.1,
-            fit: BoxFit.fill,),
-            Text(sura.nameAR,style: themeData.textTheme.titleMedium,),
-            Image.asset('assets/images/img_right_corner.png',
-            width: 93,
-            height: screenheight*0.1,
-            fit: BoxFit.fill,),
-          ],),
-        ),
-        Expanded(
-          child: ayat.isEmpty?LoadingIndictor():
-           ListView.separated(itemBuilder:(context,index)=>
-           Text(ayat[index],textAlign: TextAlign.center,style: themeData.textTheme.titleSmall?.copyWith(color: AppTheme.primary),),
-            itemCount: ayat.length,
-            separatorBuilder: (context, index) => const SizedBox(height: 5),
+      appBar: AppBar(title: Text(sura.nameEN)),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset(
+                  'assets/images/img_left_corner.png',
+                  width: 93,
+                  height: screenheight * 0.1,
+                  fit: BoxFit.fill,
+                ),
+                Text(sura.nameAR, style: themeData.textTheme.titleMedium),
+                Image.asset(
+                  'assets/images/img_right_corner.png',
+                  width: 93,
+                  height: screenheight * 0.1,
+                  fit: BoxFit.fill,
+                ),
+              ],
+            ),
           ),
-        ),
-        Image.asset('assets/images/img_bottom_decoration.png',
+          Expanded(
+            child: ayat.isEmpty
+                ? LoadingIndictor()
+                : SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text.rich(
+                      TextSpan(
+                        style: themeData.textTheme.titleSmall?.copyWith(
+                          color: AppTheme.primary,
+                          fontSize: 22,
+                          height: 1.8,
+                        ),
+                        children: [
+                          for (var index = 0; index < ayat.length; index++) ...[
+                            TextSpan(text: '${ayat[index].trim()} '),
+                            TextSpan(
+                              text: '[${index + 1}] ',
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.rtl,
+                    ),
+                  ),
+          ),
+          Image.asset(
+            'assets/images/img_bottom_decoration.png',
             width: double.infinity,
-            height: screenheight*0.1,
-            fit: BoxFit.fill,),
-      ],)
+            height: screenheight * 0.1,
+            fit: BoxFit.fill,
+          ),
+        ],
+      ),
     );
   }
 
- Future<void> readsura () async {
-     String suraContent = await QuranServices.readsurafilecontent(sura.num);  
-    ayat= suraContent.split('\r\n');
+  Future<void> readsura() async {
+    String suraContent = await QuranServices.readsurafilecontent(sura.num);
+    ayat = const LineSplitter()
+        .convert(suraContent)
+        .map((verse) => verse.replaceFirst('\uFEFF', '').trim())
+        .where((verse) => verse.isNotEmpty)
+        .toList();
     setState(() {});
   }
 }

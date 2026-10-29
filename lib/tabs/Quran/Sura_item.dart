@@ -19,18 +19,34 @@ class SuraItem extends StatelessWidget {
               fit: BoxFit.scaleDown,
             ),
           ),
-          child: Center(child: Text('${sura.num}', style: textTheme.titleSmall)),),
-        SizedBox(width: 25),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(sura.nameEN, style: textTheme.titleLarge),
-            Text('${sura.ayatCount} verses', style: textTheme.titleSmall),
-            
-          ],
+          child: Center(
+            child: Text('${sura.num}', style: textTheme.titleSmall),
+          ),
         ),
-        Spacer(),
-        Text(sura.nameAR, style: textTheme.titleLarge,),
+        SizedBox(width: 25),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                sura.nameEN,
+                style: textTheme.titleLarge,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              Text('${sura.ayatCount} verses', style: textTheme.titleSmall),
+            ],
+          ),
+        ),
+        Expanded(
+          child: Text(
+            sura.nameAR,
+            style: textTheme.titleLarge,
+            textAlign: TextAlign.end,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
       ],
     );
   }
