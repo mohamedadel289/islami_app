@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:islami/app_theme.dart';
 import 'package:islami/tabs/Quran/Sura_item.dart';
+import 'package:islami/tabs/Quran/most_recently_section.dart';
 import 'package:islami/tabs/Quran/quran_services.dart';
+import 'package:islami/tabs/Quran/sura.dart';
 import 'package:islami/tabs/Quran/sura_details_screen.dart';
 
 class QuranTab extends StatefulWidget {
@@ -19,7 +21,7 @@ class _QuranTabState extends State<QuranTab> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20),
           child: TextField(
             style: Theme.of(context).textTheme.titleSmall,
             decoration: InputDecoration(
@@ -28,7 +30,7 @@ class _QuranTabState extends State<QuranTab> {
                 width: 28,
                 height: 28,
                 fit: BoxFit.scaleDown,
-                colorFilter: const ColorFilter.mode(
+                colorFilter: ColorFilter.mode(
                   AppTheme.primary,
                   BlendMode.srcIn,
                 ),
@@ -41,8 +43,9 @@ class _QuranTabState extends State<QuranTab> {
             },
           ),
         ),
+        MostRecentlySection(),
         Padding(
-          padding: const EdgeInsets.only(left: 20.0, bottom: 10),
+          padding: EdgeInsets.only(left: 20.0, bottom: 10),
           child: Text(
             'Suras List',
             style: Theme.of(context).textTheme.titleSmall,
@@ -50,20 +53,26 @@ class _QuranTabState extends State<QuranTab> {
         ),
         Expanded(
           child: ListView.separated(
-            
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            itemBuilder: (_, index) => GestureDetector(
-              onTap: () => Navigator.pushNamed(
-                context,
-                SuraDetailsScreen.routeName,
-                arguments: QuranServices.suraReslut[index],
-              ),
-              child: SuraItem(QuranServices.suraReslut[index]),
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            itemBuilder: (_, index) {
+              Sura sura = QuranServices.suraReslut[index];
+              return GestureDetector(
+                onTap: () {
+                  QuranServices.addMostrecentlyread(sura);
+                  Navigator.pushNamed(
+                    context,
+                    SuraDetailsScreen.routeName,
+                    arguments: sura,
+                  );
+
+                  setState(() {});
+                },
+                child: SuraItem(sura),
+              );
+            },
             separatorBuilder: (context, index) =>
                 Divider(indent: 40, endIndent: 40, thickness: 1, height: 20),
             itemCount: QuranServices.suraReslut.length,
-            
           ),
         ),
       ],
