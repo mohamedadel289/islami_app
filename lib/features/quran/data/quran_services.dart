@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:islami/tabs/Quran/sura.dart';
+import 'package:islami/features/quran/models/sura.dart';
 
 class QuranServices {
   static List<String> suranameAR = [

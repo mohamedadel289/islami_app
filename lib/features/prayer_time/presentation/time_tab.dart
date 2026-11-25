@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/time/azkar_card.dart';
-import 'package:islami/tabs/time/azkar_details_screen.dart';
-import 'package:islami/tabs/time/prayer_time_card.dart';
-import 'package:islami/tabs/time/time_service.dart';
-import 'package:islami/widgets/loading_indictor.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/prayer_time/presentation/azkar_card.dart';
+import 'package:islami/features/prayer_time/presentation/azkar_details_screen.dart';
+import 'package:islami/features/prayer_time/presentation/prayer_time_card.dart';
+import 'package:islami/features/prayer_time/data/time_service.dart';
+import 'package:islami/core/widgets/loading_indicator.dart';
 
 class TimeTab extends StatefulWidget {
   const TimeTab({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/time/prayer.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/prayer_time/models/prayer.dart';
 
 class PrayerBox extends StatelessWidget {
   final Prayer prayer;

@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/time/prayer_box.dart';
-import 'package:islami/tabs/time/time_service.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/prayer_time/presentation/prayer_box.dart';
+import 'package:islami/features/prayer_time/data/time_service.dart';
 
 class PrayerTimeCard extends StatefulWidget {
   final PrayerDay day;

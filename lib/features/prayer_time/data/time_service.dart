@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
-import 'package:islami/tabs/time/prayer.dart';
+import 'package:islami/features/prayer_time/models/prayer.dart';
 
 class PrayerDay {
   final List<Prayer> prayers;
