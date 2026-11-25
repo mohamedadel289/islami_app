@@ -2,8 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/sebha/beads_ring.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/sebha/presentation/beads_ring.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
