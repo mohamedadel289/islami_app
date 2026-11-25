@@ -15,6 +15,12 @@ A Flutter Islamic companion app for reading Quran and Hadith, listening to radio
 
 Flutter, Dart, SharedPreferences, REST APIs, Geolocator, and just_audio.
 
+## Project structure
+
+- `lib/core/` contains shared theme and reusable widgets.
+- `lib/features/` contains feature-specific code, grouped into `data/`, `models/`, and `presentation/`.
+- `lib/main.dart` is the application entry point.
+
 ## Run locally
 
 ```bash
