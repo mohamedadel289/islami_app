@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/Quran/quran_services.dart';
-import 'package:islami/tabs/Quran/sura.dart';
-import 'package:islami/widgets/loading_indictor.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/quran/data/quran_services.dart';
+import 'package:islami/features/quran/models/sura.dart';
+import 'package:islami/core/widgets/loading_indicator.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
  static const String routeName = 'sura_details';
