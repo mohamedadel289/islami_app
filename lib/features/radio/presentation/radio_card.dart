@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/radio/waveform.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/radio/presentation/waveform.dart';
 
 class RadioCard extends StatelessWidget {
   final String title;

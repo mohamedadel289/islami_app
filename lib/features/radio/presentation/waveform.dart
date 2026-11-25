@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:islami/app_theme.dart';
+import 'package:islami/core/theme/app_theme.dart';
 
 /// Decorative waveform drawn behind the radio card controls.
 class Waveform extends StatelessWidget {

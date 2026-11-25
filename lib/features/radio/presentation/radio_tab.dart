@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:islami/tabs/radio/radio_card.dart';
-import 'package:islami/tabs/radio/radio_service.dart';
-import 'package:islami/tabs/radio/radio_toggle_button.dart';
-import 'package:islami/tabs/radio/surah_picker_sheet.dart';
-import 'package:islami/widgets/loading_indictor.dart';
+import 'package:islami/features/radio/presentation/radio_card.dart';
+import 'package:islami/features/radio/data/radio_service.dart';
+import 'package:islami/features/radio/presentation/radio_toggle_button.dart';
+import 'package:islami/features/radio/presentation/surah_picker_sheet.dart';
+import 'package:islami/core/widgets/loading_indicator.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';
-import 'package:islami/app_theme.dart';
+import 'package:islami/core/theme/app_theme.dart';
 
 class RadioTab extends StatefulWidget {
   const RadioTab({super.key});

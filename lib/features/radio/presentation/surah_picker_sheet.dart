@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/Quran/quran_services.dart';
-import 'package:islami/tabs/radio/radio_service.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/quran/data/quran_services.dart';
+import 'package:islami/features/radio/data/radio_service.dart';
 
 class SurahPickerSheet extends StatefulWidget {
   final Reciter reciter;
