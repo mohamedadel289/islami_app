@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/hadeth/hadeth.dart';
-import 'package:islami/tabs/hadeth/hadeth_details_screen.dart';
-import 'package:islami/widgets/loading_indictor.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/hadeth/models/hadeth.dart';
+import 'package:islami/features/hadeth/presentation/hadeth_details_screen.dart';
+import 'package:islami/core/widgets/loading_indicator.dart';
 
 class HadethItem extends StatefulWidget {
   final int index;
