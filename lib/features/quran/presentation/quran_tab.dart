@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/Quran/Sura_item.dart';
-import 'package:islami/tabs/Quran/most_recently_section.dart';
-import 'package:islami/tabs/Quran/quran_services.dart';
-import 'package:islami/tabs/Quran/sura.dart';
-import 'package:islami/tabs/Quran/sura_details_screen.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/quran/presentation/sura_item.dart';
+import 'package:islami/features/quran/presentation/most_recently_section.dart';
+import 'package:islami/features/quran/data/quran_services.dart';
+import 'package:islami/features/quran/models/sura.dart';
+import 'package:islami/features/quran/presentation/sura_details_screen.dart';
 
 class QuranTab extends StatefulWidget {
   const QuranTab({super.key});

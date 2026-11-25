@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islami/Home_Screen.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/Quran/sura_details_screen.dart';
+import 'package:islami/features/home/presentation/home_screen.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/quran/presentation/sura_details_screen.dart';
 
 void main() {
   runApp(const ISLAMIAPP());

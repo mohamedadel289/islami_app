@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/Quran/sura.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/quran/models/sura.dart';
 
 class MostRecentlyItem extends StatelessWidget {
   Sura sura;
