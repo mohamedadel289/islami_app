@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islami/Home_Screen.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/tabs/onboarding/onboarding_page_model.dart';
+import 'package:islami/features/home/presentation/home_screen.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/onboarding/models/onboarding_page_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingScreen extends StatefulWidget {

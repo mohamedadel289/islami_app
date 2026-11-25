@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islami/Home_Screen.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/widgets/details_intro_screen.dart';
+import 'package:islami/features/home/presentation/home_screen.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/core/widgets/details_intro_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroScreen extends StatefulWidget {
