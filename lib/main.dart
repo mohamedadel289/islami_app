@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:islami/Home_Screen.dart';
-import 'package:islami/app_theme.dart';
-import 'package:islami/intro_screen.dart';
-import 'package:islami/tabs/Quran/quran_services.dart';
-import 'package:islami/tabs/Quran/sura_details_screen.dart';
-import 'package:islami/tabs/hadeth/hadeth_details_screen.dart';
+import 'package:islami/features/home/presentation/home_screen.dart';
+import 'package:islami/core/theme/app_theme.dart';
+import 'package:islami/features/onboarding/presentation/intro_screen.dart';
+import 'package:islami/features/quran/data/quran_services.dart';
+import 'package:islami/features/quran/presentation/sura_details_screen.dart';
+import 'package:islami/features/hadeth/presentation/hadeth_details_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
